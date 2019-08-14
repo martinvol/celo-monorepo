@@ -78,7 +78,6 @@ const linkedLibraries = {
     'GasPriceMinimum',
     'Governance',
     'Proposals',
-    'SortedFractionMedianList',
     'SortedOracles',
     'StableToken',
     'Validators',
