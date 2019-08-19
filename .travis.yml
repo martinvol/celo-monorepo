@@ -32,7 +32,8 @@ matrix:
         # Android setup
         - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI
         # -noaudio is not supported by this version of the emulator
-        - emulator -avd test -no-window -no-boot-anim &
+        #- emulator -avd test -no-window -no-boot-anim &
+        - emulator -avd test -memory 1500 -no-accel -gpu swiftshader -camera-back none -camera-front none -no-boot-anim -no-snapshot-save -no-snapstorage
         - android-wait-for-emulator
         - yarn
         - yarn build
