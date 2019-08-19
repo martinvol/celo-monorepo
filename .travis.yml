@@ -18,6 +18,7 @@ matrix:
           - ANDROID_ABI=x86
           - QEMU_AUDIO_DRV=none  # Remove audio
           - ADB_INSTALL_TIMEOUT=20  # minutes (2 minutes by default)
+          - ANDROID_SDK_ROOT=/usr/local/android-sdk
       android:
         components:
           - tools
