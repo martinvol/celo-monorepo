@@ -5,7 +5,9 @@ matrix:
     # https://medium.com/@harmittaa/travis-ci-android-example-357f6e632fc4
     # https://stackoverflow.com/a/28751112/434196
     - name: "Run emulator"
-      language: android  
+      language: android
+      os:
+        - osx
       sudo: false
       jdk: oraclejdk8
       env:
