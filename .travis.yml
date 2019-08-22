@@ -5,7 +5,7 @@ matrix:
     # https://medium.com/@harmittaa/travis-ci-android-example-357f6e632fc4
     # https://stackoverflow.com/a/28751112/434196
     - name: "Run emulator"
-      language: android  # Python 2 testing
+      language: android  
       sudo: false
       jdk: oraclejdk8
       env:
@@ -32,6 +32,10 @@ matrix:
         # -noaudio is not supported by this version of the emulator
         - emulator -avd test -no-window -no-boot-anim &
         - android-wait-for-emulator
+        - brew install node
+        - brew install nvm
+        - nvm install 8.13
+        - nvm use 8.13
         - yarn
         - yarn build
       script:
