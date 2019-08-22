@@ -1,3 +1,4 @@
+dist: trusty # so that oraclejdk8 will install
 
 # https://stackoverflow.com/questions/27644586/how-to-set-up-travis-ci-with-multiple-languages
 matrix:
