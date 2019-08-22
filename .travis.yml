@@ -37,13 +37,13 @@ matrix:
         - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
         # - sudo apt-get install nodejs -y
         # - sudo apt-get install npm -y
-        - sudo apt-get install libssl-dev -y
+        - sudo apt-get install libssl-dev curl -y
         - sudo apt-get install nodejs -y
         - node -v
         # - sudo apt-get install nodejs-dev -y
         - sudo apt-get install node-gyp -y
         - npm -v
-        - sudo npm install nvm
+        - sudo `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
         - sudo nvm install 8.13
         - nvm use 8.13
         - yarn
