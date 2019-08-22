@@ -31,7 +31,8 @@ matrix:
         # -noaudio is not supported by this version of the emulator
         - emulator -avd test -no-window -no-boot-anim &
         - android-wait-for-emulator
-        - sudo apt install nodejs
+        - sudo apt-get update
+        - sudo apt-get install nodejs
         - npm install nvm
         - nvm install 8.13
         - nvm use 8.13
