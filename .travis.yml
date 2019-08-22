@@ -5,8 +5,6 @@ matrix:
     # https://stackoverflow.com/a/28751112/434196
     - name: "Run emulator"
       language: android
-      os:
-        - osx
       sudo: false
       # jdk: oraclejdk9
       env:
@@ -28,8 +26,6 @@ matrix:
           # Specify at least one system image
           - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
       before_script:
-        - brew tap caskroom/versions # oraclejdk9 is not working
-        - brew cask install java8
         # Android setup
         - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI
         # -noaudio is not supported by this version of the emulator
