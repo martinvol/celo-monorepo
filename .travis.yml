@@ -49,6 +49,7 @@ matrix:
         - nvm use 8.13
         - pwd
         - ls
+        - npm install --global yarn # upgrade yarn
         - yarn
         - yarn build
       script:
