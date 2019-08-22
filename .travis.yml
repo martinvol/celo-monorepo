@@ -6,7 +6,7 @@ matrix:
     - name: "Run emulator"
       language: android
       sudo: false
-      # jdk: oraclejdk9
+      jdk: oraclejdk8
       env:
         global:
           - DX_HEAP_SIZE=2048
@@ -43,6 +43,7 @@ matrix:
         # - sudo apt-get install nodejs-dev -y
         - sudo apt-get install node-gyp -y
         - npm -v
+        - nvm install 8
         - sudo `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
         - sudo nvm install 8.13
         - nvm use 8.13
