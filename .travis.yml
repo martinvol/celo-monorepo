@@ -32,6 +32,8 @@ matrix:
         # -noaudio is not supported by this version of the emulator
         - emulator -avd test -no-window -no-boot-anim &
         - android-wait-for-emulator
+        - yarn
+        - yarn build
       script:
         - echo "instalation worked"
 
