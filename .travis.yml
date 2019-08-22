@@ -30,8 +30,8 @@ matrix:
         # Android setup
         - echo no | android create avd --force -n Nexus_5X_API_28_x86 -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI # change name and the arch
         # # -noaudio is not supported by this version of the emulator
-        - emulator -avd test -no-window -no-boot-anim &
-        - android-wait-for-emulator
+        # - emulator -avd test -no-window -no-boot-anim &
+        # - android-wait-for-emulator
         - sudo apt-get update
         - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
         - sudo apt-get install libssl-dev curl -y
@@ -45,7 +45,7 @@ matrix:
         - yarn
         - yarn build
         - cd packages/mobile
-        - yarn test
+        - yarn test:dry-run-e2e
       script:
         - echo "instalation worked"
 
