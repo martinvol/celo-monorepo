@@ -43,7 +43,6 @@ matrix:
         # - sudo apt-get install nodejs-dev -y
         - sudo apt-get install node-gyp -y
         - npm -v
-        - sudo apt-get install npm -y
         - sudo npm install nvm
         - sudo nvm install 8.13
         - nvm use 8.13
