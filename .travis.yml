@@ -32,6 +32,7 @@ matrix:
         # # -noaudio is not supported by this version of the emulator
         # - emulator -avd test -no-window -no-boot-anim &
         # - android-wait-for-emulator
+        - yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
         - sudo apt-get update
         - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
         - sudo apt-get install libssl-dev curl -y
