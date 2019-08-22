@@ -20,35 +20,27 @@ matrix:
       android:
         components:
           - echo "skiping"
-          # - tools
-          # - platform-tools
-          # - android-$ANDROID_API_LEVEL
-          # - android-$ANDROID_EMU_API_LEVEL
-          # # Specify at least one system image
-          # - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
+          - tools
+          - platform-tools
+          - android-$ANDROID_API_LEVEL
+          - android-$ANDROID_EMU_API_LEVEL
+          # Specify at least one system image
+          - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
       before_script:
         # Android setup
-        # - echo no | android create avd --force -n test -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI
+        - echo no | android create avd --force -n Nexus_5X_API_28_x86 -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI # change name and the arch
         # # -noaudio is not supported by this version of the emulator
-        # - emulator -avd test -no-window -no-boot-anim &
-        # - android-wait-for-emulator
+        - emulator -avd test -no-window -no-boot-anim &
+        - android-wait-for-emulator
         - sudo apt-get update
-        # - sudo apt update
         - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-        # - sudo apt-get install nodejs -y
-        # - sudo apt-get install npm -y
         - sudo apt-get install libssl-dev curl -y
         - sudo apt-get install nodejs -y
         - node -v
-        # - sudo apt-get install nodejs-dev -y
         - sudo apt-get install node-gyp -y
         - npm -v
-        # - nvm install 8
-        # - sudo `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash`
         - nvm install 8.13
         - nvm use 8.13
-        - pwd
-        - ls
         - npm install --global yarn # upgrade yarn
         - yarn
         - yarn build
