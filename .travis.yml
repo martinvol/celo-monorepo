@@ -52,6 +52,8 @@ matrix:
         - npm install --global yarn # upgrade yarn
         - yarn
         - yarn build
+        - cd packages/mobile
+        - yarn test
       script:
         - echo "instalation worked"
 
