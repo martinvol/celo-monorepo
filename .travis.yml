@@ -19,18 +19,18 @@ matrix:
           - ADB_INSTALL_TIMEOUT=20  # minutes (2 minutes by default)
       android:
         components:
+          - echo "skiping"
           - tools
           - platform-tools
           - android-$ANDROID_API_LEVEL
           - android-$ANDROID_EMU_API_LEVEL
           # Specify at least one system image
           - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
-        licenses:
+      licenses:
           - build-tools
           - platforms
       before_script:
         # Android setup
-        - android list targets
         - echo no | android create avd --force -n Nexus_5X_API_28_x86 -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI # change name and the arch
         # # -noaudio is not supported by this version of the emulator
         # - emulator -avd test -no-window -no-boot-anim &
