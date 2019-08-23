@@ -19,7 +19,6 @@ matrix:
           - ADB_INSTALL_TIMEOUT=20  # minutes (2 minutes by default)
       android:
         components:
-          - echo "skiping"
           - tools
           - platform-tools
           - android-$ANDROID_API_LEVEL
