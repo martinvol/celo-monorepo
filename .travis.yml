@@ -26,13 +26,15 @@ matrix:
           - android-$ANDROID_EMU_API_LEVEL
           # Specify at least one system image
           - sys-img-$ANDROID_ABI-google_apis-$ANDROID_EMU_API_LEVEL
+        licenses:
+          - build-tools
+          - platforms
       before_script:
         # Android setup
         - echo no | android create avd --force -n Nexus_5X_API_28_x86 -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI # change name and the arch
         # # -noaudio is not supported by this version of the emulator
         # - emulator -avd test -no-window -no-boot-anim &
         # - android-wait-for-emulator
-        - yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
         - sudo apt-get update
         - curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
         - sudo apt-get install libssl-dev curl -y
