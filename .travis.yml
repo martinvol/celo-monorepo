@@ -30,6 +30,7 @@ matrix:
           - platforms
       before_script:
         # Android setup
+        - ndroid list targets
         - echo no | android create avd --force -n Nexus_5X_API_28_x86 -t android-$ANDROID_EMU_API_LEVEL --abi google_apis/$ANDROID_ABI # change name and the arch
         # # -noaudio is not supported by this version of the emulator
         # - emulator -avd test -no-window -no-boot-anim &
