@@ -48,6 +48,7 @@ matrix:
         - yarn
         - yarn build
         - cd packages/mobile
+        - yes | sdkmanager --licenses
         - yarn test:dry-run-e2e
       script:
         - echo "instalation worked"
