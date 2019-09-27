@@ -96,8 +96,8 @@ matrix:
         - ls -l packages/
         
         
-        # - yarn
-        # - yarn build
+        - yarn
+        - yarn build
 
         # Without this detox fails with 
         # detox[11851] ERROR: [cli.js] Error: Command failed: node_modules/.bin/jest --config=e2e/config.json --maxWorkers=1 '--testNamePattern=^((?!:ios:).)*$' --detectOpenHandles "e2e"
