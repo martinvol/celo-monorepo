@@ -94,17 +94,19 @@ matrix:
         - rm -rf packages/{analytics,blockchain-api,cli,docs,faucet,helm-charts,attestation-service,celotool}
         - rm -rf packages/{terraform-modules,verification-pool-api,web}
         - ls -l packages/
-        - yarn
-        - yarn build
+        
+        
+        # - yarn
+        # - yarn build
 
         # Without this detox fails with 
         # detox[11851] ERROR: [cli.js] Error: Command failed: node_modules/.bin/jest --config=e2e/config.json --maxWorkers=1 '--testNamePattern=^((?!:ios:).)*$' --detectOpenHandles "e2e"
-        # - ln -s $PWD/node_modules/jest/bin/jest.js packages/mobile/node_modules/.bin/jest
+        - ln -s $PWD/node_modules/jest/bin/jest.js packages/mobile/node_modules/.bin/jest
         # detox seems to need this
         - touch $HOME/.emulator_console_auth_token
 
         - cd packages/mobile
-        - yarn build:sdk integration        
+        # - yarn build:sdk integration        
         # Now wait for emulator to start
         # - android-wait-for-emulator
 
@@ -112,6 +114,7 @@ matrix:
         - set -eo pipefail
         - pwd
         - react-native link react-native-gesture-handler # Why is this needed?
+        - cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .. # just build the app for now
         - yarn test:dry-run-e2e
 
 # Good .travis.yml files to learn from
