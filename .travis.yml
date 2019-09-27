@@ -113,7 +113,6 @@ matrix:
       script:
         - set -eo pipefail
         - pwd
-        - cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .. # just build the app for now
         - yarn test:dry-run-e2e
 
 # Good .travis.yml files to learn from
