@@ -41,6 +41,8 @@ matrix:
           - ANDROID_SDK_ROOT=$HOME/android-sdk
           # detox config in packages/mobile/package.json is hard-coded to use this name.
           - AVD_NAME=Nexus_5X_API_28_x86
+      components:
+        - build-tools-28.0.3
 
       install:
         - set -e
@@ -105,7 +107,6 @@ matrix:
         - yarn build:sdk integration        
         # Now wait for emulator to start
         # - android-wait-for-emulator
-        - yarn build
 
       script:
         - set -eo pipefail
