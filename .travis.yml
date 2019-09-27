@@ -77,7 +77,7 @@ matrix:
         # # https://www.bram.us/2017/05/12/launching-the-android-emulator-from-the-command-line/
         # - alias emulator=$HOME/android-sdk/emulator/emulator
         # -noaudio is not supported by this version of the emulator
-        - emulator -avd $AVD_NAME -no-window -no-boot-anim &
+        # - emulator -avd $AVD_NAME -no-window -no-boot-anim &
 
         # While emulator is starting up, install other packages
         - sudo apt-get update
