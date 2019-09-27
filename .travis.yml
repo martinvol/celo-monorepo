@@ -89,9 +89,9 @@ matrix:
 
         # TODO: consider deleting packages unrelated to mobile like web or celotool to speed up yarn.
         # - echo "Deleting some reudundant packages for faster yarn"
-        - rm -rf packages/{analytics,blockchain-api,cli,docs,faucet,helm-charts,protocol}
+        - rm -rf packages/{analytics,blockchain-api,cli,docs,faucet,helm-charts,protocol,attestation-service}
         - rm -rf packages/{terraform-modules,verification-pool-api,web}
-        # - ls -l packages/
+        - ls -l packages/
         - yarn
         - yarn build
 
