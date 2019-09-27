@@ -101,7 +101,7 @@ matrix:
 
         # Without this detox fails with 
         # detox[11851] ERROR: [cli.js] Error: Command failed: node_modules/.bin/jest --config=e2e/config.json --maxWorkers=1 '--testNamePattern=^((?!:ios:).)*$' --detectOpenHandles "e2e"
-        - ln -s $PWD/node_modules/jest/bin/jest.js packages/mobile/node_modules/.bin/jest
+        # - ln -s $PWD/node_modules/jest/bin/jest.js packages/mobile/node_modules/.bin/jest
         # detox seems to need this
         - touch $HOME/.emulator_console_auth_token
 
