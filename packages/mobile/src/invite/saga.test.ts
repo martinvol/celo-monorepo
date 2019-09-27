@@ -9,7 +9,6 @@ import { call, select } from 'redux-saga/effects'
 import { setName } from 'src/account'
 import { showError } from 'src/alert/actions'
 import { ErrorMessages } from 'src/app/ErrorMessages'
-import { ALERT_BANNER_DURATION } from 'src/config'
 import {
   InviteBy,
   redeemComplete,
@@ -20,6 +19,7 @@ import {
 import { watchRedeemInvite, watchSendInvite } from 'src/invite/saga'
 import { waitWeb3LastBlock } from 'src/networkInfo/saga'
 import { transactionConfirmed } from 'src/transactions/actions'
+import { getConnectedUnlockedAccount } from 'src/web3/saga'
 import { currentAccountSelector } from 'src/web3/selectors'
 import { createMockContract, createMockStore } from 'test/utils'
 import { mockAccount, mockE164Number, mockName } from 'test/values'
@@ -75,7 +75,7 @@ describe(watchSendInvite, () => {
 
   it('sends an SMS invite as expected', async () => {
     await expectSaga(watchSendInvite)
-      .provide([[call(waitWeb3LastBlock), true]])
+      .provide([[call(waitWeb3LastBlock), true], [call(getConnectedUnlockedAccount), mockAccount]])
       .withState(state)
       .dispatch(sendInvite(mockName, mockE164Number, InviteBy.SMS))
       .dispatch(transactionConfirmed('a sha3 hash'))
@@ -87,7 +87,7 @@ describe(watchSendInvite, () => {
 
   it('sends a WhatsApp invite as expected', async () => {
     await expectSaga(watchSendInvite)
-      .provide([[call(waitWeb3LastBlock), true]])
+      .provide([[call(waitWeb3LastBlock), true], [call(getConnectedUnlockedAccount), mockAccount]])
       .withState(state)
       .dispatch(sendInvite(mockName, mockE164Number, InviteBy.WhatsApp))
       .put(storeInviteeData(KEY, mockE164Number))
@@ -131,7 +131,7 @@ describe(watchRedeemInvite, () => {
       .provide([[call(waitWeb3LastBlock), true]])
       .withState(state)
       .dispatch(redeemInvite(KEY, NAME))
-      .put(showError(ErrorMessages.REDEEM_INVITE_FAILED, ALERT_BANNER_DURATION))
+      .put(showError(ErrorMessages.REDEEM_INVITE_FAILED))
       .run()
   })
 
@@ -144,7 +144,7 @@ describe(watchRedeemInvite, () => {
       .provide([[call(waitWeb3LastBlock), true]])
       .withState(state)
       .dispatch(redeemInvite(KEY, NAME))
-      .put(showError(ErrorMessages.REDEEM_INVITE_FAILED, ALERT_BANNER_DURATION))
+      .put(showError(ErrorMessages.REDEEM_INVITE_FAILED))
       .run()
   })
 
@@ -155,7 +155,7 @@ describe(watchRedeemInvite, () => {
       .provide([[select(currentAccountSelector), null], [call(waitWeb3LastBlock), true]])
       .withState(state)
       .dispatch(redeemInvite(KEY, NAME))
-      .put(showError(ErrorMessages.REDEEM_INVITE_FAILED, ALERT_BANNER_DURATION))
+      .put(showError(ErrorMessages.REDEEM_INVITE_FAILED))
       .run()
   })
 
