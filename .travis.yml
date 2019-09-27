@@ -111,6 +111,7 @@ matrix:
       script:
         - set -eo pipefail
         - pwd
+        - react-native link react-native-gesture-handler # Why is this needed?
         - yarn test:dry-run-e2e
 
 # Good .travis.yml files to learn from
