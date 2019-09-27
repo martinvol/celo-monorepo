@@ -96,8 +96,8 @@ matrix:
         - ls -l packages/
         
         
-        # - yarn
-        # - yarn build
+        - yarn
+        - yarn build
 
         # Without this detox fails with 
         # detox[11851] ERROR: [cli.js] Error: Command failed: node_modules/.bin/jest --config=e2e/config.json --maxWorkers=1 '--testNamePattern=^((?!:ios:).)*$' --detectOpenHandles "e2e"
@@ -106,7 +106,7 @@ matrix:
         - touch $HOME/.emulator_console_auth_token
 
         - cd packages/mobile
-        # - yarn build:sdk integration        
+        - yarn build:sdk integration        
         # Now wait for emulator to start
         # - android-wait-for-emulator
 
