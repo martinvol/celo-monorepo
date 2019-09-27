@@ -96,8 +96,8 @@ matrix:
         - ls -l packages/
         
         
-        - yarn
-        - yarn build
+        # - yarn
+        # - yarn build
 
         # Without this detox fails with 
         # detox[11851] ERROR: [cli.js] Error: Command failed: node_modules/.bin/jest --config=e2e/config.json --maxWorkers=1 '--testNamePattern=^((?!:ios:).)*$' --detectOpenHandles "e2e"
@@ -113,7 +113,6 @@ matrix:
       script:
         - set -eo pipefail
         - pwd
-        - react-native link react-native-gesture-handler # Why is this needed?
         - cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd .. # just build the app for now
         - yarn test:dry-run-e2e
 
