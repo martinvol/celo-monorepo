@@ -89,10 +89,11 @@ matrix:
 
         # TODO: consider deleting packages unrelated to mobile like web or celotool to speed up yarn.
         # - echo "Deleting some reudundant packages for faster yarn"
-        # - rm -rf packages/{analytics,blockchain-api,cli,dappkit,docs,faucet,helm-charts}
-        # - rm -rf packages/{terraform-modules,verification-pool-api,verifier,web}
+        - rm -rf packages/{analytics,blockchain-api,cli,docs,faucet,helm-charts,protocol}
+        - rm -rf packages/{terraform-modules,verification-pool-api,web}
         # - ls -l packages/
         - yarn
+        - yarn build
 
         # Without this detox fails with 
         # detox[11851] ERROR: [cli.js] Error: Command failed: node_modules/.bin/jest --config=e2e/config.json --maxWorkers=1 '--testNamePattern=^((?!:ios:).)*$' --detectOpenHandles "e2e"
