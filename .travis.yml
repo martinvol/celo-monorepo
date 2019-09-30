@@ -58,7 +58,7 @@ matrix:
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager 'platform-tools' > /dev/null
         - echo y | $HOME/android-sdk/tools/bin/sdkmanager "platforms;android-$ANDROID_API_LEVEL" > /dev/null
         # - echo y | $HOME/android-sdk/tools/bin/sdkmanager "system-images;android-$ANDROID_API_LEVEL;default;$ANDROID_ABI" > /dev/null
-        - echo y | $HOME/android-sdk/tools/bin/sdkmanager "system-images;android-$ANDROID_EMU_API_LEVEL;default;$ANDROID_ABI" > /dev/null
+        # - echo y | $HOME/android-sdk/tools/bin/sdkmanager "system-images;android-$ANDROID_EMU_API_LEVEL;default;$ANDROID_ABI" > /dev/null
 
       before_script:
         - set -eo pipefail
