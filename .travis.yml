@@ -31,8 +31,8 @@ matrix:
       env:
         global:
           - DX_HEAP_SIZE=2048
-          - ANDROID_API_LEVEL=27
-          - ANDROID_EMU_API_LEVEL=27
+          - ANDROID_API_LEVEL=28
+          - ANDROID_EMU_API_LEVEL=28
           - ANDROID_ABI=armeabi-v7a
           - QEMU_AUDIO_DRV=none  # Remove audio
           - ADB_INSTALL_TIMEOUT=20  # minutes (2 minutes by default)
