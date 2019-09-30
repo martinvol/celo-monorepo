@@ -7,6 +7,8 @@
 
 SECRET_PIN="123456"
 
+adb kill-server && adb start-server
+
 while ! (adb devices | grep "emu")
 do
   echo "Error: The emulator is not running or not connected to adb. "
@@ -23,7 +25,6 @@ echo "Device is done booting"
 echo "Setting up pin"
 
 adb shell locksettings set-pin $SECRET_PIN || echo "Device already has a pin"
-
 
 echo "Unlocking device"
 
